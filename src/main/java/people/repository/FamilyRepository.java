@@ -7,8 +7,8 @@ import people.model.Family;
 import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel="family", path="family")
-public class FamilyRepository extends PagingAndSortingRepository<Family, Long> {
+public interface FamilyRepository extends PagingAndSortingRepository<Family, Long> {
 
-    List<Family> findByName((@Param("name") String name);
+    List<Family> findByName(@Param("name") String name);
 
 }
