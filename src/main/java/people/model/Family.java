@@ -1,25 +1,35 @@
 package people.model;
 
-import javax.persistence.*;
-import java.util.Collection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.FetchType;
+import java.util.HashSet;
 
 @Entity(name = "FAMILY")
 public class Family {
 
     @Id
     @Column(name = "FAMILY_ID", nullable = false)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
     @Column(name = "NAME", length = 50)
     private String name;
 
     @OneToMany(mappedBy = "family", targetEntity = Person.class, fetch = FetchType.LAZY)
-    private Collection people;
+    @JoinColumn(name = "PERSON_ID", referencedColumnName="PERSON_ID")
+    private HashSet<Person> people;
 
     protected Family() {}
 
     public Family(String name) {
         this.name = name;
+        this.people = new HashSet<>();
     }
 
     public String getName() {
@@ -28,6 +38,14 @@ public class Family {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public HashSet<Person> getPeople() {
+        return this.people;
+    }
+
+    public void addPerson(Person person) {
+        this.people.add(person);
     }
 
     @Override
