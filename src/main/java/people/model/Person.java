@@ -22,7 +22,7 @@ public class Person {
     private String lastName;
 
     @ManyToOne(optional=true)
-    @JoinColumn(name = "FAMILY_ID", referencedColumnName="FAMILY_ID")
+    // @JoinColumn(name = "FAMILY_ID", referencedColumnName="FAMILY_ID")
     private Family family;
 
     protected Person() {}
