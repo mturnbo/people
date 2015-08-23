@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
- *  Person object
+ *  Person respository
  *
  *  @author Marcus Turnbo
  */
