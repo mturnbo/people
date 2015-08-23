@@ -12,7 +12,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  *  @author Marcus Turnbo
  */
 
-@RepositoryRestResource(collectionResourceRel="people", path="people")
+@RepositoryRestResource(collectionResourceRel="person", path="person")
 public interface PersonRepository extends PagingAndSortingRepository<Person, Long> {
 
     List<Person> findByFirstName(@Param("name") String firstName);
