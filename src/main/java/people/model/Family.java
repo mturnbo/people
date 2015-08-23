@@ -1,29 +1,35 @@
 package people.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
-import javax.persistence.JoinColumn;
 import javax.persistence.FetchType;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity(name = "FAMILY")
+/**
+ *  Family object
+ *
+ *  @author Marcus Turnbo
+ */
+
+@Entity()
+@Table(name = "family")
 public class Family {
 
     @Id
-    @Column(name = "FAMILY_ID", nullable = false)
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "NAME", length = 50)
+    @Column(name = "name", length = 50)
     private String name;
 
     @OneToMany(mappedBy = "family", targetEntity = Person.class, fetch = FetchType.EAGER)
-    // @JoinColumn(name = "PERSON_ID", referencedColumnName="PERSON_ID")
     private Set<Person> people = new HashSet<>();
 
     protected Family() {}

@@ -6,6 +6,12 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import people.model.Family;
 import java.util.List;
 
+/**
+ *  Family repository
+ *
+ *  @author Marcus Turnbo
+ */
+
 @RepositoryRestResource(collectionResourceRel="family", path="family")
 public interface FamilyRepository extends PagingAndSortingRepository<Family, Long> {
 
