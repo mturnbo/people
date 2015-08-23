@@ -1,10 +1,10 @@
 package people.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.joda.time.DateTime;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
@@ -28,10 +28,10 @@ public class Person {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
-    @Column(name = "firstname", length = 50)
+    @Column(name = "firstname", length = 50, nullable = false)
     private String firstName;
 
-    @Column(name = "lastname", length = 50)
+    @Column(name = "lastname", length = 50, nullable = false)
     private String lastName;
 
     @Column(name = "birthdate")
@@ -41,7 +41,7 @@ public class Person {
     private DateTime birthDate;
 
     @ManyToOne(optional=true)
-    // @JoinColumn(name = "FAMILY_ID", referencedColumnName="FAMILY_ID")
+    @JoinColumn(name = "family_id", referencedColumnName="id")
     private Family family;
 
     protected Person() {}
@@ -67,10 +67,18 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public DateTime getBirthDate() {
+        return this.birthDate;
+    }
+
+    public void setBirthDate(DateTime birthDate) {
+        this.birthDate = birthDate;
+    }
+
     @Override
     public String toString() {
         return String.format(
-                "Person[id=%d, firstName='%s', lastName='%s']",
-                id, firstName, lastName);
+                "Person[id=%d, firstName='%s', lastName='%s', birthDate='%s']",
+                id, firstName, lastName, birthDate);
     }
 }
