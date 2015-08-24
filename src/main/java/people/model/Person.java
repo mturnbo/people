@@ -18,6 +18,8 @@ import org.hibernate.annotations.Type;
  *  Person object
  *
  *  @author Marcus Turnbo
+ *
+ *  Persisted object with many-to-one relationship with Family object
  */
 
 @Entity
@@ -36,8 +38,8 @@ public class Person {
 
     @Column(name = "birthdate")
     @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
-    @JsonFormat(pattern = "yyyy/MM/dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private DateTime birthDate;
 
     @ManyToOne(optional=true)

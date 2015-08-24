@@ -15,6 +15,8 @@ import java.util.Set;
  *  Family object
  *
  *  @author Marcus Turnbo
+ *
+ *  Persisted object with one-to-many relationship with Person object
  */
 
 @Entity()

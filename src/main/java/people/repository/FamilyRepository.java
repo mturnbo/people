@@ -10,6 +10,8 @@ import java.util.List;
  *  Family repository
  *
  *  @author Marcus Turnbo
+ *
+ *  Allows various operations involving Family objects by extending the PagingAndSortingRepository interface
  */
 
 @RepositoryRestResource(collectionResourceRel="family", path="family")

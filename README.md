@@ -2,6 +2,8 @@
 
 This Spring Boot project uses Spring Data REST to expose methods for managing People and Families.
 
+Objects are persisted using an in-memory database (H2) that is initialized with 3 people and 1 family.
+
 ## Person
 A person can be added, delete, and updated.  If a family exists, a person can be added to a family. 
 
@@ -22,8 +24,8 @@ A person can be added, delete, and updated.  If a family exists, a person can be
 
 ### Update Person Birth Date
 
-	curl -i -X PUT -H "Content-Type:application/json" \
-	-d '{"firstName":"George", "lastName":"Costanza", "birthDate":"1960-11-11"}' \
+	curl -i -X PATCH -H "Content-Type:application/json" \
+	-d '{"birthDate":"1960-11-11"}' \
 	-http://localhost:8080/person/{id}
 	
 ### Set Person Family
@@ -43,7 +45,13 @@ A family can be added, deleted, and updated.  Removing a family does not remove 
 
 	curl -i -X POST -H "Content-Type:application/json" -d 	'{"name":"Costanza"}' http://localhost:8080/family
 	
-###Remove Family
+### Remove Family
 
 	curl -i -X DELETE http://localhost:8080/family/{id}
+
+### Change Family Name
+
+	curl -i X PATCH -H "Content-Type:application/json" \
+	-d '{"name":"New Family Name"}' \
+	-http://localhost:8080/family/{id}
 

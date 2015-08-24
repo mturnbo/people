@@ -10,6 +10,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  *  Person respository
  *
  *  @author Marcus Turnbo
+ *
+ *  Allows various operations involving Person objects by extending the PagingAndSortingRepository interface
  */
 
 @RepositoryRestResource(collectionResourceRel="person", path="person")
