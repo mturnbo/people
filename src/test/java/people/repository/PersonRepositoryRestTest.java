@@ -21,7 +21,7 @@ import static org.springframework.http.HttpMethod.GET;
 @SpringApplicationConfiguration(classes = People.class)
 @WebAppConfiguration
 @IntegrationTest(value = "server.port=9000")
-public class PersonRestRepositoryTest {
+public class PersonRepositoryRestTest {
 
     private RestTemplate restTemplate = new TestRestTemplate();
 
