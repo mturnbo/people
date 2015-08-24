@@ -21,16 +21,17 @@ import static org.springframework.http.HttpMethod.GET;
 @SpringApplicationConfiguration(classes = People.class)
 @WebAppConfiguration
 @IntegrationTest(value = "server.port=9000")
-public class PersonRepositoryTest {
+public class PersonRestRepositoryTest {
 
     private RestTemplate restTemplate = new TestRestTemplate();
 
     @Test
     public void getPerson() {
-        String personUrl = "http://localhost:9000/person/1";
+        String url = "http://localhost:9000/person/1";
 
-        ParameterizedTypeReference<Resource<Person>> responseType = new ParameterizedTypeReference<Resource<Person>>() {};
-        ResponseEntity<Resource<Person>> responseEntity = restTemplate.exchange(personUrl, GET, null, responseType);
+        ParameterizedTypeReference<Resource<Person>> responseType =
+                new ParameterizedTypeReference<Resource<Person>>() {};
+        ResponseEntity<Resource<Person>> responseEntity = restTemplate.exchange(url, GET, null, responseType);
         Person person = responseEntity.getBody().getContent();
 
         assertEquals("Frank", person.getFirstName());

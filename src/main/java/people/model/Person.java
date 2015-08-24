@@ -77,6 +77,14 @@ public class Person {
         this.birthDate = birthDate;
     }
 
+    public Family getFamily() {
+        return this.family;
+    }
+
+    public void setFamily(Family family) {
+        this.family = family;
+    }
+
     @Override
     public String toString() {
         return String.format(

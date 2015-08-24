@@ -21,17 +21,17 @@ import static org.springframework.http.HttpMethod.GET;
 @SpringApplicationConfiguration(classes = People.class)
 @WebAppConfiguration
 @IntegrationTest(value = "server.port=9000")
-public class FamilyRepositoryTest {
+public class FamilyRestRepositoryTest {
 
     private RestTemplate restTemplate = new TestRestTemplate();
 
     @Test
     public void getFamily() {
-        String personUrl = "http://localhost:9000/family/1";
+        String url = "http://localhost:9000/family/1";
 
-        ParameterizedTypeReference<Resource<Family>> responseType = new ParameterizedTypeReference<Resource<Family>>() {
-        };
-        ResponseEntity<Resource<Family>> responseEntity = restTemplate.exchange(personUrl, GET, null, responseType);
+        ParameterizedTypeReference<Resource<Family>> responseType =
+                new ParameterizedTypeReference<Resource<Family>>() {};
+        ResponseEntity<Resource<Family>> responseEntity = restTemplate.exchange(url, GET, null, responseType);
         Family family = responseEntity.getBody().getContent();
 
         assertEquals("Jones", family.getName());

@@ -34,6 +34,12 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
 
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    // end::jetty[]
+    // tag::actuator[]
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    // end::actuator[]
+
     compile("joda-time:joda-time:2.4")
     compile("org.jadira.usertype:usertype.jodatime:2.0.1")
     compile("com.fasterxml.jackson.datatype:jackson-datatype-joda:2.4.2");

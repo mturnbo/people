@@ -15,7 +15,7 @@ import java.util.List;
  */
 
 @RepositoryRestResource(collectionResourceRel="family", path="family")
-public interface FamilyRepository extends PagingAndSortingRepository<Family, Long> {
+public interface FamilyRestRepository extends PagingAndSortingRepository<Family, Long> {
 
     List<Family> findByName(@Param("name") String name);
 
