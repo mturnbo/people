@@ -27,7 +27,7 @@ public class FamilyRepositoryRestTest {
 
     @Test
     public void getFamily() {
-        String url = "http://localhost:9000/family/1";
+        String url = "http://localhost:9000/families/1";
 
         ParameterizedTypeReference<Resource<Family>> responseType =
                 new ParameterizedTypeReference<Resource<Family>>() {};

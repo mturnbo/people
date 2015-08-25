@@ -27,7 +27,7 @@ public class PersonRepositoryRestTest {
 
     @Test
     public void getPerson() {
-        String url = "http://localhost:9000/person/1";
+        String url = "http://localhost:9000/persons/1";
 
         ParameterizedTypeReference<Resource<Person>> responseType =
                 new ParameterizedTypeReference<Resource<Person>>() {};
